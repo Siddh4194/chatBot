@@ -193,11 +193,11 @@ app.post("/wrongAnswer",(req, res) => {
   
 ////////// server  -----------------------------------------------
 // main page render
-app.get("/",function(req,res){
-  res.send("Deployes but not front end");
+app.get('/',(req,res)=>{
+    res.send("you are damn monster!");
 });
 
-app.listen(process.env.PORT || 3001 , async function() {
-    console.log("Server started on port 3000");
-    await run();
+
+app.listen(process.env.PORT || 500 , function() {
+    console.log("Server started on port 500");
 });

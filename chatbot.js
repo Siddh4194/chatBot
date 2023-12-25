@@ -119,14 +119,7 @@ app.set('view options', {
 });
 
 
-  
-////////// server  -----------------------------------------------
-// main page render
 
-
-app.get("/",function(req,res){
-  res.send("Deployes but not front end");
-});
 
 // student data is posted
 app.post("/post",function(req,res){
@@ -197,6 +190,12 @@ app.post("/wrongAnswer",(req, res) => {
     res.send({response:"Your Question is stored to process. I'll process it shortly."});
 });
 
+  
+////////// server  -----------------------------------------------
+// main page render
+app.get("/",function(req,res){
+  res.send("Deployes but not front end");
+});
 
 app.listen(process.env.PORT || 3001 , function() {
     console.log("Server started on port 3000");

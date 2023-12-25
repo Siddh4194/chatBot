@@ -14,7 +14,7 @@ const env = require('dotenv').config();
 //   const m =  await tf.loadLayersModel('file:///react/chatbot/model/model.json');
 //   let prediction = await m.predict(tf.stack([tf.tensor1d(data)])).data();
 //   let score = Math.max(...prediction);
-//   const no = prediction.indexOf(Math.max(...prediction));
+//   const no = prediction.indexOf(Math.max(...prediction))
 //   console.log(no+":"+score);
 //   return Promise.resolve([no, score]);
 // }

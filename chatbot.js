@@ -3,7 +3,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const fs = require("fs");
-const { renderModelReply, run ,chatData_All} = require("./gemini");
+const {chatData_All} = require("./gemini");
 // const tf = require('@tensorflow/tfjs-node');
 // const run = require("./gemini");
 const env = require('dotenv').config();
@@ -179,6 +179,37 @@ app.post("/feeddata",(req, res) => {
 //creating the file for nural network
 
 // the user unput is fetched and give back the predictios.
+let chatInstance;
+async function run(callback) {
+  // For text-only input, use the gemini-pro model
+  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+  console.log(chatData_All[chatData_All.length - 1]);
+  chatInstance = model.startChat({
+    history: [
+      {
+        role: "user",
+        parts: chatData_All
+        // ["Developed by Siddhant Dhanaji Kadam student at NMCOE.Peth To assist student to give the positive fedback for there further jurney","programmed by Siddhant Dhanaji Kadam, And programmed in such way that I can Guide students for there admission process and many more"],
+      },
+      {
+        role: "model",
+        parts: "Great to meet you. What would you like to know?",
+      },
+    ],
+    generationConfig: {
+      maxOutputTokens: 400,
+    },
+  });
+  console.log("model is loaded successfully");
+}
+
+async function renderModelReply(string){
+  const result = await chatInstance.sendMessage(string);
+  const response = await result.response;
+  const text = response.text();
+  console.log(text);
+  return text;
+}
 
 app.post("/predict",async (req,res) => {
   console.log(req.body.input);

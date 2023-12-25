@@ -7,6 +7,12 @@ const { renderModelReply, run ,chatData_All} = require("./gemini");
 // const tf = require('@tensorflow/tfjs-node');
 // const run = require("./gemini");
 const env = require('dotenv').config();
+
+
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const env = require('dotenv').config();
+// Access your API key as an environment variable (see "Set up your API key" above)
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 // tensorflow.js node model
 // the value of predicted que no is returned
 // async function load_model(data) {

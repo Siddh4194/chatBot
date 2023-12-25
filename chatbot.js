@@ -114,10 +114,10 @@ app.use(express.static("public"));
 // Initialize the view engine
 app.set("view engine", "ejs");
 app.set('view options', {
-  strict: true,
+  // strict: true,
   destructuredLocals: ["user", "timestamp"],
 });
-app.set('views', '/views');
+app.set('views', './views');
 
 
 

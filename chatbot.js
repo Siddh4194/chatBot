@@ -201,9 +201,9 @@ app.post("/wrongAnswer",(req, res) => {
 ////////// server  -----------------------------------------------
 // main page render
 app.get('/',(req,res)=>{
-    // res.send("you are damn monster!");
+    res.send("you are damn monster!");
 // res.sendFile("public/chatbot.html");
-	res.render("chatbot");
+	// res.render("chatbot");
 	  // res.render("chatbot");
 });
 

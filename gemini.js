@@ -2346,4 +2346,4 @@ async function renderModelReply(string){
   return text;
 }
 
-module.exports = {run,renderModelReply};
+module.exports = {run,renderModelReply,chatData_All};

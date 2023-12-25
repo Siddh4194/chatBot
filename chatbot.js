@@ -202,7 +202,7 @@ app.post("/wrongAnswer",(req, res) => {
 // main page render
 app.get('/',(req,res)=>{
     // res.send("you are damn monster!");
-res.send("public/chatbot.html");
+res.sendFile("public/chatbot.ejs");
 	// res.render("chatbot");
 	  // res.render("chatbot");
 });

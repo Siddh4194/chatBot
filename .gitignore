@@ -1,0 +1,10 @@
+/node_modules
+
+
+/.env
+
+/files
+/model
+/model1
+/pythonAPI
+/verified-wikipedia-dev.js

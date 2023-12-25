@@ -114,10 +114,10 @@ app.use(express.static("public"));
 // Initialize the view engine
 app.set("view engine", "ejs");
 app.set('view options', {
-  // strict: true,
+  strict: true,
   destructuredLocals: ["user", "timestamp"],
 });
-app.set('views', './views');
+// app.set('views', './views');
 
 
 
@@ -202,8 +202,9 @@ app.post("/wrongAnswer",(req, res) => {
 // main page render
 app.get('/',(req,res)=>{
     // res.send("you are damn monster!");
+res.send("public/chatbot.html");
 	// res.render("chatbot");
-	  res.render("chatbot");
+	  // res.render("chatbot");
 });
 
 

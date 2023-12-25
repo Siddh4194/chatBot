@@ -180,6 +180,11 @@ app.post("/predict",async (req,res) => {
   res.send({responce:pred});
 });
 
+app.post("/api/predict",async (req,res) => {
+  console.log(req.body.input);
+  let pred = await renderModelReply(req.body.input);
+  res.send({responce:pred});
+});
 
 app.post("/wrongAnswer",(req, res) => {
   var newQue = new wrongAnswer({

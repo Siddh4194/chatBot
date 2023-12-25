@@ -197,7 +197,7 @@ app.get("/",function(req,res){
   res.send("Deployes but not front end");
 });
 
-app.listen(process.env.PORT || 3001 , function() {
+app.listen(process.env.PORT || 3001 , async function() {
     console.log("Server started on port 3000");
-    run();
+    await run();
 });

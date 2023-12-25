@@ -3,7 +3,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const fs = require("fs");
-const { renderModelReply, run } = require("./gemini");
+const { renderModelReply, run ,chatData_All} = require("./gemini");
 // const tf = require('@tensorflow/tfjs-node');
 // const run = require("./gemini");
 const env = require('dotenv').config();
@@ -201,7 +201,7 @@ app.post("/wrongAnswer",(req, res) => {
 ////////// server  -----------------------------------------------
 // main page render
 app.get('/',(req,res)=>{
-    res.send("you are damn monster!");
+    res.send(chatData_All);
 // res.sendFile("public/chatbot.html");
 	// res.render("chatbot");
 	  // res.render("chatbot");

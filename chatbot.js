@@ -233,6 +233,21 @@ app.post("/wrongAnswer",(req, res) => {
     res.send({response:"Your Question is stored to process. I'll process it shortly."});
 });
 
+
+app.get('/getStatus',(req,res)=>{
+try {
+  require.resolve('@google/generative-ai');
+  res.send('Package is installed.');
+} catch (error) {
+  res.send('Package is not installed.');
+}
+
+	// res.send(chatData_All);
+// res.sendFile("public/chatbot.html");
+	// res.render("chatbot");
+	  // res.render("chatbot");
+});
+
   
 ////////// server  -----------------------------------------------
 // main page render

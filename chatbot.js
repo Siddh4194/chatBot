@@ -125,7 +125,7 @@ app.set('view options', {
 
 
 app.get("/",function(req,res){
-  res.render("chatbot");
+  res.send("Deployes but not front end");
 });
 
 // student data is posted

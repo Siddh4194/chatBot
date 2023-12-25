@@ -198,7 +198,7 @@ app.post("/wrongAnswer",(req, res) => {
 });
 
 
-app.listen(process.env.port || 3001 , function() {
+app.listen(process.env.PORT || 3001 , function() {
     console.log("Server started on port 3000");
     // run();
 });

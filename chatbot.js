@@ -194,10 +194,12 @@ app.post("/wrongAnswer",(req, res) => {
 ////////// server  -----------------------------------------------
 // main page render
 app.get('/',(req,res)=>{
-    res.send("you are damn monster!");
+    // res.send("you are damn monster!");
+	res.render("chatbot");
 });
 
 
 app.listen(process.env.PORT || 500 , function() {
     console.log("Server started on port 500");
+	run();
 });

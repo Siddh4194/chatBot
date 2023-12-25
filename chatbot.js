@@ -179,7 +179,7 @@ app.post("/feeddata",(req, res) => {
 
 // the user unput is fetched and give back the predictios.
 let chatInstance;
-async function run(callback) {
+async function run(string) {
   // For text-only input, use the gemini-pro model
   const model = genAI.getGenerativeModel({ model: "gemini-pro"});
   console.log(chatData_All[chatData_All.length - 1]);
@@ -199,7 +199,12 @@ async function run(callback) {
       maxOutputTokens: 400,
     },
   });
-  console.log("model is loaded successfully");
+  const result = await chatInstance.sendMessage(string);
+  const response = await result.response;
+  const text = response.text();
+  console.log(text);
+  return text;
+  // console.log("model is loaded successfully");
 }
 
 async function renderModelReply(string){
@@ -212,13 +217,13 @@ async function renderModelReply(string){
 
 app.post("/predict",async (req,res) => {
   console.log(req.body.input);
-  let pred = await renderModelReply(req.body.input);
+  let pred = await run(req.body.input);
   res.send({responce:pred});
 });
 
 app.post("/api/predict",async (req,res) => {
   console.log(req.body.input);
-  let pred = await renderModelReply(req.body.input);
+  let pred = await run(req.body.input);
   res.send({responce:pred});
 });
 
@@ -241,7 +246,6 @@ try {
 } catch (error) {
   res.send('Package is not installed.');
 }
-
 	// res.send(chatData_All);
 // res.sendFile("public/chatbot.html");
 	// res.render("chatbot");
@@ -261,5 +265,5 @@ app.get('/',(req,res)=>{
 
 app.listen(process.env.PORT || 500 , function() {
     console.log("Server started on port 500");
-	run();
+	// run();
 });

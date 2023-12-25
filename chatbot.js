@@ -108,15 +108,17 @@ app.use(
 );
   
 app.use(express.json());
-app.use(bodyparser.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true })); // This line is sufficient for parsing URL-encoded data
 app.use(express.static("public"));
 
-// initialize the view engine
-app.set("view engine","ejs");
+// Initialize the view engine
+app.set("view engine", "ejs");
 app.set('view options', {
-	strict: true,
-	destructuredLocals: ["user","timestamp"],
+  strict: true,
+  destructuredLocals: ["user", "timestamp"],
 });
+app.set('views', '/views');
+
 
 
 

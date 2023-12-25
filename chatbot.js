@@ -210,5 +210,5 @@ app.get('/',(req,res)=>{
 
 app.listen(process.env.PORT || 500 , function() {
     console.log("Server started on port 500");
-	// run();
+	run();
 });
